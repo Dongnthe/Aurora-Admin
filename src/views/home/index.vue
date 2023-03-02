@@ -1,8 +1,5 @@
 <template>
- <div class='container'>
-  我是login
-  <el-button>Default</el-button>
- </div>
+ <div class='container'></div>
 </template>
  
 <script setup lang='ts'>

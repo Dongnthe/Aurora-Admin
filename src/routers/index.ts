@@ -6,6 +6,11 @@ const routes: RouteRecordRaw[] = [
     name: 'Login',
     component: () => import('@/views/login/index.vue'), // 注意这里要带上 文件后缀.vue
   },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/home/index.vue'),
+  },
 ]
 
 const router = createRouter({
