@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// reset style sheet
+import "@/styles/reset.scss";
+// CSS common style sheet
+import "@/styles/common.scss";
 // element plus
 import ElementPlus from "element-plus";
 // element css
