@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 import { resolve } from "path";
@@ -27,6 +28,8 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    // * name 可以写在 script 标签上
+    vueSetupExtend(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
