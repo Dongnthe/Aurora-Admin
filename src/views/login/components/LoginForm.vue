@@ -30,8 +30,15 @@ import { Login } from "@/api/interface";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { ElForm } from "element-plus";
 import { valid } from "semver";
+import { getTimeState } from "@/utils/util";
+import { HOME_URL } from "@/config/config";
 import { loginApi } from "@/api/modules/login";
+import { GlobalStore } from '@/stores';
+import { ElNotification } from "element-plus";
 import md5 from "js-md5";
+
+const globalStore = GlobalStore()
+const router = useRouter()
 
 // 定义 formRef（校验规则）
 type FormInstance = InstanceType<typeof ElForm>;
@@ -50,13 +57,27 @@ const login = (formEl: FormInstance | undefined) => {
   formEl.validate(async valid => {
     if(!valid) return
     loading.value = true
-    console.log(valid);
     try {
+      // 登录接口
       const { data } = await loginApi({...loginForm, password: md5(loginForm.password)})
-      console.log(data);
+      globalStore.setToken(data.access_token)
+
+      // 2.动态添加路由
+        // TODO
+
+      // 3.清空 tabs、keepAlive 保留的数据
+
+      // 4.跳转到首页
+      router.push(HOME_URL)
+      ElNotification({
+				title: getTimeState(),
+				message: "欢迎登录 V3-Admin",
+				type: "success",
+				duration: 3000
+			});
       
     } finally {
-      
+      loading.value = false
     }
   }) 
 }
