@@ -1,22 +1,20 @@
 <template>
- <div class='container'>
-  <el-button @click="logout">退出登录</el-button>
- </div>
+  <div class="home card">
+    <img class="home-bg" src="@/assets/images/welcome.png" alt="welcome" />
+  </div>
 </template>
- 
-<script setup lang='ts'>
- import {ref,reactive} from "vue";
-import { useRouter } from "vue-router";
-import { ElMessage } from "element-plus";
- 
-const router = useRouter();
- const logout = () => {
-  ElMessage('已退出')
-  router.push('/');
- }
-</script>
- 
-<style lang="scss" scoped>
- .container {
- }
+
+<style scoped lang="scss">
+.home {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	.home-bg {
+		width: 70%;
+		max-width: 1200px;
+		margin-bottom: 20px;
+	}
+}
 </style>

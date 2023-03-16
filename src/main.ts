@@ -8,11 +8,12 @@ import "@/styles/common.scss";
 import ElementPlus from "element-plus";
 // element css
 import "element-plus/dist/index.css";
-import { createPinia } from "pinia"
+// pinia store
+import pinia from "@/stores/index";
 
 import router from "@/routers/index";
 
 const app = createApp(App);
 
 
-app.use(router).use(ElementPlus).use(createPinia()).mount('#app')
+app.use(router).use(ElementPlus).use(pinia).mount('#app')

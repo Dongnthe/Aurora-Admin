@@ -35,6 +35,7 @@ import { HOME_URL } from "@/config/config";
 import { loginApi } from "@/api/modules/login";
 import { GlobalStore } from '@/stores';
 import { ElNotification } from "element-plus";
+import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import md5 from "js-md5";
 
 const globalStore = GlobalStore()
@@ -44,7 +45,7 @@ const router = useRouter()
 type FormInstance = InstanceType<typeof ElForm>;
 const loginFormRef = ref<FormInstance>()
 
-const loginForm = reactive<Login.ReqLoginForm>({ username: "", password: "" })
+const loginForm = reactive<Login.ReqLoginForm>({ username: "admin", password: "123" })
 const loginRules = reactive({
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   password: [{ required: true, message: "请输入密码", trigger: "blur" }],
@@ -60,10 +61,12 @@ const login = (formEl: FormInstance | undefined) => {
     try {
       // 登录接口
       const { data } = await loginApi({...loginForm, password: md5(loginForm.password)})
+      
       globalStore.setToken(data.access_token)
+      console.log(globalStore);
 
       // 2.动态添加路由
-        // TODO
+      await initDynamicRouter();
 
       // 3.清空 tabs、keepAlive 保留的数据
 
