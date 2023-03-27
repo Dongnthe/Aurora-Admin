@@ -1,10 +1,10 @@
-# V3-Admin
+# Aurora-Admin
 ✨✨基于 Vue3.2、TypeScript、Vite3、Pinia、Element-Plus 的一套后台管理框架，封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
 
 
 ### 代码仓库 ⭐
 
-- GitHub：https://github.com/Dongnthe/V3-Admin
+- GitHub：https://github.com/Dongnthe/Aurora-Admin
 
 ### 项目文档 📚
 
@@ -30,7 +30,7 @@
 
 ```text
 # GitHub
-git clone https://github.com/Dongnthe/V3-Admin.git
+git clone https://github.com/Dongnthe/Aurora-Admin.git
 ```
 
 - **Run：**

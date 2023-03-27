@@ -74,7 +74,7 @@ const login = (formEl: FormInstance | undefined) => {
       router.push(HOME_URL)
       ElNotification({
 				title: getTimeState(),
-				message: "欢迎登录 V3-Admin",
+				message: "欢迎登录 Aurora-Admin",
 				type: "success",
 				duration: 3000
 			});
