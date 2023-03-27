@@ -1,4 +1,4 @@
-# V3-Admin
+# Aurora-Admin
 ✨✨基于 Vue3.2、TypeScript、Vite3、Pinia、Element-Plus 的一套后台管理框架，封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
 
 
