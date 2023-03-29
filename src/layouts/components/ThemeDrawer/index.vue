@@ -16,5 +16,5 @@ mittBus.on("openThemeDrawer",() => (drawerVisible.value = true))
 </script>
  
 <style lang="scss" scoped>
-.container {}
+@import "./index.scss";
 </style>
