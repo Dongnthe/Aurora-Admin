@@ -4,8 +4,7 @@
       <div class="menu" :style="{ width: isCollapse ? '65px' : '220px' }">
         <div class="logo flx-center">
           <img src="@/assets/images/logo.svg" alt="logo" />
-          <span>Aurora Admin</span>
-          <!-- <span v-show="!isCollapse">Aurora Admin</span> -->
+          <span v-show="!isCollapse">Aurora Admin</span>
         </div>
         <el-scrollbar>
           <el-menu :default-active="activeMenu" :router="false" :collapse="isCollapse" :collapse-transition="false"
@@ -17,9 +16,10 @@
     </el-aside>
     <el-container>
       <el-header>
-        123
+        <ToolBarLeft />
+        <ToolBarRight />
       </el-header>
-      456
+      我是主体内容
     </el-container>
   </el-container>
 </template>
@@ -31,6 +31,8 @@ import { useRoute } from "vue-router";
 import { GlobalStore } from "@/stores";
 import { AuthStore } from "@/stores/modules/auth";
 import SubMenu from "@/layouts/components/Menu/SubMenu.vue";
+import ToolBarLeft from "@/layouts/components/Header/ToolBarLeft.vue";
+import ToolBarRight from "@/layouts/components/Header/ToolBarRight.vue";
 
 const route = useRoute();
 const authStore = AuthStore();

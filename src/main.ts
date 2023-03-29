@@ -4,6 +4,8 @@ import App from './App.vue'
 import "@/styles/reset.scss";
 // CSS common style sheet
 import "@/styles/common.scss";
+// iconfont css
+import "@/assets/iconfont/iconfont.scss";
 // element plus
 import ElementPlus from "element-plus";
 // element icons
@@ -17,5 +19,9 @@ import router from "@/routers/index";
 
 const app = createApp(App);
 
+// 注册element Icons组件
+Object.keys(Icons).forEach(key => {
+	app.component(key, Icons[key as keyof typeof Icons]);
+});
 
 app.use(router).use(ElementPlus).use(pinia).mount('#app')
