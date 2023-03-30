@@ -1,16 +1,27 @@
 <template>
   <div class='tool-bar-ri'>
     <div class="header-icon">
-      <AssemblySize />
-      <ThemeSetting />
+      <!-- 设置element组件大小 -->
+      <AssemblySize id="AssemblySize" />
+      <!-- 主题、布局配置 -->
+      <ThemeSetting id="ThemeSetting" />
+      <!-- 消息管理 -->
+      <Message id="Message" />
+      <!-- 全屏 -->
+      <Fullscreen id="Fullscreen" />
     </div>
     <span class="username">xiaoli</span>
+    <!-- 个人中心 -->
+    <Personal />
   </div>
 </template>
  
 <script setup lang='ts'>
 import AssemblySize from "./components/AssemblySize.vue";
 import ThemeSetting from "./components/ThemeSetting.vue";
+import Message from "./components/Message.vue";
+import Fullscreen from "./components/Fullscreen.vue";
+import Personal from "./components/Personal.vue";
 
 
 </script>
