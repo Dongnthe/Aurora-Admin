@@ -1,24 +1,28 @@
-<!-- 一次性加载 -->
+<!-- 异步加载 -->
 <template>
-  <LayoutVertical />
+  <suspense>
+		<template #default>
+			<component :is="LayoutComponents[themeConfig.layout]" />
+		</template>
+		<template #fallback>
+			<Loading />
+		</template>
+	</suspense>
+  <!-- 主题、布局配置抽屉 -->
   <ThemeDrawer />
 </template>
 
 <script setup lang="ts" name="layout">
-import { computed, type Component } from "vue";
+import { computed, defineAsyncComponent, type Component } from "vue";
 import { GlobalStore } from "@/stores";
 import ThemeDrawer from "./components/ThemeDrawer/index.vue";
-import LayoutVertical from "./LayoutVertical/index.vue";
-// import LayoutClassic from "./LayoutClassic/index.vue";
-// import LayoutTransverse from "./LayoutTransverse/index.vue";
-// import LayoutColumns from "./LayoutColumns/index.vue";
+import Loading from "@/components/Loading/index.vue";
 
-// const LayoutComponents: { [key: string]: Component } = {
-// 	vertical: LayoutVertical,
-// 	classic: LayoutClassic,
-// 	transverse: LayoutTransverse,
-// 	columns: LayoutColumns
-// };
+// 异步加载
+const LayoutComponents: { [key: string]: Component } = {
+  vertical: defineAsyncComponent(() => import("./LayoutVertical/index.vue")),
+  transverse: defineAsyncComponent(() => import("./LayoutTransverse/index.vue")),
+}
 
 const globalStore = GlobalStore();
 const themeConfig = computed(() => globalStore.themeConfig);

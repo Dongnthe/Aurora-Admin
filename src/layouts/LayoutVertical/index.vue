@@ -19,7 +19,7 @@
         <ToolBarLeft />
         <ToolBarRight />
       </el-header>
-      我是主体内容
+      <Main />
     </el-container>
   </el-container>
 </template>
@@ -30,6 +30,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { GlobalStore } from "@/stores";
 import { AuthStore } from "@/stores/modules/auth";
+import Main from "@/layouts/components/Main/index.vue";
 import SubMenu from "@/layouts/components/Menu/SubMenu.vue";
 import ToolBarLeft from "@/layouts/components/Header/ToolBarLeft.vue";
 import ToolBarRight from "@/layouts/components/Header/ToolBarRight.vue";
