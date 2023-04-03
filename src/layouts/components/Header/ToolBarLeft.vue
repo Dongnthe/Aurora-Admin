@@ -1,9 +1,9 @@
 <template>
  <div class='tool-bar-lf'>
   <!-- 折叠icon -->
-  <CollapseIcon />
+  <CollapseIcon id="collapseIcon" />
   <!-- 面包屑 -->
-  <Breadcrumb v-if="themeConfig.breadcrumb" />
+  <Breadcrumb id="breadcrumb" v-if="themeConfig.breadcrumb" />
  </div>
 </template>
  
